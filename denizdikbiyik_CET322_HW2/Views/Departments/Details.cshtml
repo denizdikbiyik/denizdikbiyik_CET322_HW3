@@ -1,0 +1,28 @@
+﻿@model denizdikbiyik_CET322_HW2.Models.Department
+
+@{
+    ViewData["Title"] = "Detaylar";
+}
+
+<h1>Detaylar</h1>
+
+<div>
+    <h4>Departman - @Model.DepartmentName</h4>
+    <hr />
+    @foreach (var post in Model.Students)
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                @post.StudentName
+            </dt>
+            <dd class="col-sm-10">
+                <a asp-controller="Students" asp-action="Details" asp-route-id="@post.StudentId" class="btn btn-primary"> Bilgi </a>
+
+            </dd>
+        </dl>
+    }
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Düzenle</a> |
+    <a asp-action="Index">Listeye Dön</a>
+</div>
